@@ -103,6 +103,43 @@
   text-decoration: underline;
 }
 
+.leeao-source-toc {
+  margin: 1.25rem 0 2rem;
+  border: 1px solid var(--leeao-toc-border);
+  border-radius: 0.5rem;
+  background: var(--leeao-toc-bg);
+}
+
+.leeao-source-toc summary {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.leeao-source-toc[open] summary {
+  border-bottom: 1px solid var(--leeao-toc-border);
+}
+
+.leeao-source-toc > ul {
+  max-height: min(52vh, 32rem);
+  margin: 0;
+  padding: 0.75rem 1rem 1rem 2.6rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  line-height: 1.55;
+}
+
+.leeao-source-toc li {
+  margin: 0.22rem 0;
+}
+
+.leeao-source-toc-number {
+  font-variant-numeric: tabular-nums;
+  color: var(--icons);
+}
+
 @media (min-width: 1500px) {
   .content main {
     max-width: 58rem;
