@@ -11,6 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  MDBOOK_VERSION: 0.5.4
+  MDBOOK_TOC_VERSION: 0.15.4
+  MDBOOK_OPEN_ON_GH_VERSION: 3.0.0
+
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -24,11 +29,23 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6.0.0
 
+      - name: Cache mdBook tools
+        id: mdbook-cache
+        uses: actions/cache@v6.1.0
+        with:
+          path: ~/.local/mdbook-tools
+          key: mdbook-tools-${{ runner.os }}-${{ runner.arch }}-${{ env.MDBOOK_VERSION }}-${{ env.MDBOOK_TOC_VERSION }}-${{ env.MDBOOK_OPEN_ON_GH_VERSION }}
+
       - name: Install mdBook tools
+        if: steps.mdbook-cache.outputs.cache-hit != 'true'
         run: |
-          cargo install mdbook --version 0.5.4 --locked
-          cargo install mdbook-toc --version 0.15.4 --locked
-          cargo install mdbook-open-on-gh --version 3.0.0 --locked
+          cargo install --root "$HOME/.local/mdbook-tools" mdbook --version "$MDBOOK_VERSION" --locked
+          cargo install --root "$HOME/.local/mdbook-tools" mdbook-toc --version "$MDBOOK_TOC_VERSION" --locked
+          cargo install --root "$HOME/.local/mdbook-tools" mdbook-open-on-gh --version "$MDBOOK_OPEN_ON_GH_VERSION" --locked
+
+      - name: Add mdBook tools to PATH
+        run: echo "$HOME/.local/mdbook-tools/bin" >> "$GITHUB_PATH"
+
       - name: Show mdbook version
         run: mdbook --version
       - name: Show toc version
