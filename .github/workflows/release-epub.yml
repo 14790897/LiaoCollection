@@ -1,0 +1,51 @@
+name: release epub
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: jontze/action-mdbook@v4.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          mdbook-version: 0.5.4
+          use-toc: true
+          toc-version: 0.15.4
+          use-opengh: true
+          opengh-version: 3.0.0
+
+      - name: Install EPUB renderer
+        run: cargo install mdbook-epub --version 0.5.4 --locked
+
+      - name: Build EPUB
+        run: mdbook-epub --standalone .
+
+      - name: Verify EPUB
+        run: |
+          epub="book/大李敖全集.epub"
+          test -f "$epub"
+          test "$(wc -c < "$epub")" -lt 2147483648
+          unzip -t "$epub"
+          sha256sum "$epub"
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EPUB: book/大李敖全集.epub
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "$EPUB" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" "$EPUB" \
+              --generate-notes \
+              --title "大李敖全集 $GITHUB_REF_NAME"
+          fi

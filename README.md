@@ -59,9 +59,11 @@ cargo install mdbook-open-on-gh --version 3.0.0 --locked
 ## 在book目录生成html版本，book/index.html。在浏览器中打开后，在index页使用右上角的print可以获得pdf版本。
 mdbook build
 
-## 生成epub，但是文件过于巨大，浏览困难，不推荐使用。
+## 生成 EPUB。当前全集约 53 MiB，部分阅读器处理超长目录时可能较慢。
 mdbook-epub --standalone .
 ```
+
+推送 `v*` tag 时，GitHub Actions 会自动构建 EPUB，并将其上传到对应的 GitHub Release。
 
 ## 文件处理流程
 
