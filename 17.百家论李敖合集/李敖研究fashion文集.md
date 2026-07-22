@@ -2,75 +2,80 @@
 
 <!-- toc -->
 
-## 《李敖研究fashion文集》目录
+<details class="leeao-source-toc">
+<summary>原书详细目录（含补充条目）</summary>
+<ul>
+<li>《李敖研究fashion文集》小引</li>
+<li>李敖研究</li>
+<li><span class="leeao-source-toc-number">001.</span> 李敖与庄因</li>
+<li><span class="leeao-source-toc-number">002.</span> 《李敖研究》缘起</li>
+<li><span class="leeao-source-toc-number">003.</span> 《李敖情感世界》序</li>
+<li><span class="leeao-source-toc-number">004.</span> 李敖+王尚勤=小文</li>
+<li><span class="leeao-source-toc-number">005.</span> 大陆研究李敖综述</li>
+<li><span class="leeao-source-toc-number">006.</span> 隔海和寂寞的贾维斯弟弟</li>
+<li><span class="leeao-source-toc-number">007.</span> 李敖研究的前程往事</li>
+<li><span class="leeao-source-toc-number">008.</span> 有关李敖的几个问题</li>
+<li><span class="leeao-source-toc-number">009.</span> 蛋蛋版《李敖大全集》序</li>
+<li><span class="leeao-source-toc-number">010.</span> “相看两不厌”的李敖</li>
+<li><span class="leeao-source-toc-number">011.</span> 我最难忘的一场演讲</li>
+<li><span class="leeao-source-toc-number">012.</span> 李敖的保镖</li>
+<li><span class="leeao-source-toc-number">013.</span> 李敖的预言及其它</li>
+<li><span class="leeao-source-toc-number">014.</span> 跟武彪学真功夫
+<ul>
+<li>李文来往</li>
+</ul>
+</li>
+<li><span class="leeao-source-toc-number">015.</span> 我与李文博士的因缘际会</li>
+<li><span class="leeao-source-toc-number">016.</span> 李文致电fashion</li>
+<li><span class="leeao-source-toc-number">017.</span> 杭州晤李文</li>
+<li><span class="leeao-source-toc-number">018.</span> 与李文谈李敖来大陆</li>
+<li><span class="leeao-source-toc-number">019.</span> 李敖家中的李敖辣手著文《我和李敖一起骂》</li>
+<li><span class="leeao-source-toc-number">020.</span> 李文请吃饭
+<ul>
+<li>杂文论集</li>
+</ul>
+</li>
+<li><span class="leeao-source-toc-number">021.</span> 海澡</li>
+<li><span class="leeao-source-toc-number">022.</span> 孙子和《孙子兵法》</li>
+<li><span class="leeao-source-toc-number">023.</span> 向厦航索赔</li>
+<li><span class="leeao-source-toc-number">024.</span> 秋千自述</li>
+<li><span class="leeao-source-toc-number">025.</span> 军训生活</li>
+<li><span class="leeao-source-toc-number">026.</span> 我们那个年代的学生街</li>
+<li><span class="leeao-source-toc-number">027.</span> 由一张照片引起的</li>
+<li><span class="leeao-source-toc-number">028.</span> 飞扬跋扈为谁雄</li>
+<li><span class="leeao-source-toc-number">029.</span> 奶奶的生日</li>
+<li><span class="leeao-source-toc-number">030.</span> 制约理论</li>
+<li><span class="leeao-source-toc-number">031.</span> 由吐痰说开去</li>
+<li><span class="leeao-source-toc-number">032.</span> 唯有爱得短暂，才能体现永恒</li>
+<li><span class="leeao-source-toc-number">033.</span> 回忆我的爷爷</li>
+<li><span class="leeao-source-toc-number">034.</span> 初到福地</li>
+<li><span class="leeao-source-toc-number">035.</span> 秋水伊人</li>
+<li><span class="leeao-source-toc-number">036.</span> “闭门只读等身书”</li>
+<li><span class="leeao-source-toc-number">037.</span> 亦算是缘份</li>
+<li><span class="leeao-source-toc-number">038.</span> 逛书市</li>
+<li><span class="leeao-source-toc-number">039.</span> 与芥子见面记</li>
+<li><span class="leeao-source-toc-number">040.</span> 十年相知终留憾雨后阳光</li>
+<li><span class="leeao-source-toc-number">041.</span> 打工仔的歌声</li>
+<li><span class="leeao-source-toc-number">042.</span> 《清初学人第一——纳兰性德研究》读后小识</li>
+<li><span class="leeao-source-toc-number">043.</span> 纸鹞</li>
+<li><span class="leeao-source-toc-number">044.</span> 有女来扰</li>
+<li><span class="leeao-source-toc-number">045.</span> 秋意绮色佳
+<ul>
+<li>侠客游记</li>
+</ul>
+</li>
+<li><span class="leeao-source-toc-number">046.</span> 红色之旅</li>
+<li><span class="leeao-source-toc-number">047.</span> 武夷之旅</li>
+<li><span class="leeao-source-toc-number">048.</span> 武夷文化</li>
+<li><span class="leeao-source-toc-number">049.</span> 十八重溪漂流</li>
+<li><span class="leeao-source-toc-number">050.</span> 重游武夷</li>
+<li><span class="leeao-source-toc-number">051.</span> 香港印象</li>
+<li><span class="leeao-source-toc-number">052.</span> 西游记</li>
+<li><span class="leeao-source-toc-number">053.</span> 林觉民故居与严复故居</li>
+<li><span class="leeao-source-toc-number">054.</span> 恬静的乡村——婺源</li>
+</ul>
+</details>
 
-《李敖研究fashion文集》小引
-
-李敖研究
-
-001.李敖与庄因
-002.《李敖研究》缘起
-003.《李敖情感世界》序
-004.李敖+王尚勤=小文
-005.大陆研究李敖综述
-006.隔海和寂寞的贾维斯弟弟
-007.李敖研究的前程往事
-008.有关李敖的几个问题
-009.蛋蛋版《李敖大全集》序
-010.“相看两不厌”的李敖
-011.我最难忘的一场演讲
-012.李敖的保镖
-013.李敖的预言及其它
-014.跟武彪学真功夫
-
-李文来往
-
-015.我与李文博士的因缘际会
-016.李文致电fashion
-017.杭州晤李文
-018.与李文谈李敖来大陆
-019.李敖家中的李敖辣手著文《我和李敖一起骂》
-020.李文请吃饭
-
-杂文论集
-
-021.海澡
-022.孙子和《孙子兵法》
-023.向厦航索赔
-024.秋千自述
-025.军训生活
-026.我们那个年代的学生街
-027.由一张照片引起的
-028.飞扬跋扈为谁雄
-029.奶奶的生日
-030.制约理论
-031.由吐痰说开去
-032.唯有爱得短暂，才能体现永恒
-033.回忆我的爷爷
-034.初到福地
-035.秋水伊人
-036.“闭门只读等身书”
-037.亦算是缘份
-038.逛书市
-039.与芥子见面记
-040.十年相知终留憾雨后阳光
-041.打工仔的歌声
-042.《清初学人第一——纳兰性德研究》读后小识
-043.纸鹞
-044.有女来扰
-045.秋意绮色佳
-
-侠客游记
-
-046.红色之旅
-047.武夷之旅
-048.武夷文化
-049.十八重溪漂流
-050.重游武夷
-051.香港印象
-052.西游记
-053.林觉民故居与严复故居
-054.恬静的乡村——婺源
 
 
 
