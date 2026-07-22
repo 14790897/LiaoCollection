@@ -7,6 +7,7 @@ import argparse
 import csv
 import difflib
 import re
+from collections import Counter
 from pathlib import Path
 
 
@@ -15,6 +16,7 @@ HEADING = re.compile(r"^\s*#{1,6}\s*")
 SOURCE_BOILERPLATE = (
     "李敖影音E书QQ群",
     "李敖影音E书②群",
+    "李敖影音书籍群不自由的自由",
     "李敖数字博物馆",
     "李敖资源下载站",
     "油管/抖音/西瓜/小红书/哔哩哔哩/今日头条",
@@ -57,6 +59,9 @@ def chunks(lines: list[str], source: bool = False) -> list[tuple[str, list[str]]
 def merge(current: list[str], source: list[str]) -> tuple[list[str], int, int]:
     old = chunks(current)
     new = chunks(source, source=True)
+    old_counts = Counter(item[0] for item in old)
+    new_counts = Counter(item[0] for item in new)
+    added_counts: Counter[str] = Counter()
     matcher = difflib.SequenceMatcher(None, [x[0] for x in old], [x[0] for x in new], autojunk=False)
     output: list[str] = []
     inserted = conflicts = 0
@@ -66,10 +71,13 @@ def merge(current: list[str], source: list[str]) -> tuple[list[str], int, int]:
             for _, block in old[i1:i2]:
                 output.extend(block)
         elif tag == "insert" and index > 0 and index + 1 < len(opcodes):
-            for _, block in new[j1:j2]:
+            for block_key, block in new[j1:j2]:
                 if is_source_boilerplate(block[0]):
                     continue
+                if old_counts[block_key] + added_counts[block_key] >= new_counts[block_key]:
+                    continue
                 output.extend(block)
+                added_counts[block_key] += 1
                 inserted += 1
         else:
             for _, block in old[i1:i2]:
