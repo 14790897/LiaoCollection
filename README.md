@@ -75,7 +75,7 @@ mdbook-epub --standalone .
   `find -type f -name '*.txt' | xargs sed -i '/李敖研究网/d'`
 - deleted trailing spaces
   `find -type f -name '*.txt' | xargs sed -i 's/[ \t\r ]\+$//'`
-- delete all spaces
-  `find -type f -name '*.md' | xargs sed -i 's/[ ]//'`
+- preserve spaces between English words; historical files can be repaired from the
+  original TXT files with `scripts/restore_english_spaces.py`
 - rename all _.txt to_.md
   `for f in *.txt; do mv -- "$f" "${f%.txt}.md"; done`

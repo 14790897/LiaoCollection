@@ -13,11 +13,17 @@ from pathlib import Path
 ENTRY = re.compile(r"^(\d{3})\.(.+)$")
 HEADING = re.compile(r"^##\s+")
 TOC = "<!-- toc -->"
+GROUP_MARKER = "<!-- leeao-entry-group -->"
 CATALOG_HEADING = re.compile(r"^#《.+》目录$")
 
 
 def enrich(path: Path) -> tuple[str, int]:
-    lines = path.read_text().splitlines()
+    source = path.read_text()
+    lines = source.splitlines()
+    if GROUP_MARKER in lines:
+        heading_count = sum(HEADING.match(line) is not None for line in lines)
+        return source, heading_count
+
     lines = [
         f"## {line[1:]}"
         if CATALOG_HEADING.match(line)
