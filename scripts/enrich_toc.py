@@ -19,7 +19,7 @@ CATALOG_HEADING = re.compile(r"^#《.+》目录$")
 def enrich(path: Path) -> tuple[str, int]:
     lines = path.read_text().splitlines()
     lines = [
-        "## 目录"
+        f"## {line[1:]}"
         if CATALOG_HEADING.match(line)
         else re.sub(r"^(#{2,6})(?=\S)", r"\1 ", line)
         for line in lines
