@@ -52,7 +52,7 @@ def main() -> None:
             failures.append(f"missing SUMMARY page: {page.relative_to(root)}")
             continue
         text = page.read_text()
-        lines = sum(bool(line.strip()) for line in text.splitlines())
+        lines = len(text.splitlines())
         headings = len(re.findall(r"^## ", text, re.MULTILINE))
         grouped = GROUP_MARKER in text
         single_chapter = page.name != "README.md" and headings <= 1

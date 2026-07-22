@@ -8,8 +8,6 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-from reflow_long_paragraphs import reflow
-
 
 EPISODE = re.compile(r"^## (\d{3})\.(\d{4})-(\d{2})-(\d{2})[：:](.+)$")
 SUMMARY_LINK = "  - [李敖有话说](10.李敖节目演讲合集/李敖有话说.md)"
@@ -86,8 +84,7 @@ def main() -> None:
             body = [f"# 李敖有话说：{year} 年 {label}", "", "<!-- toc -->", ""]
             for episode in group:
                 body.extend(lines[episode["index"] : episode["end"]])
-            content = "\n".join(body).rstrip() + "\n"
-            generated[output_dir / year / filename] = reflow(content)[0]
+            generated[output_dir / year / filename] = "\n".join(body).rstrip() + "\n"
             page_count += 1
         generated[output_dir / year / "README.md"] = "\n".join(year_index).rstrip() + "\n"
     generated[output_dir / "README.md"] = "\n".join(overview).rstrip() + "\n"
