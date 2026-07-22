@@ -23,8 +23,7 @@ def canonical_markdown(target: Path, source: Path, title: str) -> str:
         stripped = line.strip(" \t\u3000")
         if stripped and is_source_boilerplate(stripped):
             continue
-        if stripped == "<XX>":
-            stripped = r"\<XX>"
+        stripped = stripped.replace("<XX>", r"\<XX>")
         body.append(headings.get(key(stripped), stripped) if stripped else "")
 
     while body and not body[0]:
