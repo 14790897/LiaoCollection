@@ -1,5 +1,5 @@
 :root {
-  --leeao-content-width: 52rem;
+  --leeao-content-width: 64rem;
   --leeao-toc-border: color-mix(in srgb, var(--fg) 18%, transparent);
   --leeao-toc-bg: color-mix(in srgb, var(--bg) 94%, var(--fg));
   --leeao-active-bg: color-mix(in srgb, var(--sidebar-active) 12%, transparent);
