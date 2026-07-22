@@ -57,6 +57,7 @@ jobs:
           EPUB: book/leeao-${{ github.ref_name }}.epub
         run: |
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release delete-asset "$GITHUB_REF_NAME" default.epub --yes 2>/dev/null || true
             gh release upload "$GITHUB_REF_NAME" "$EPUB" --clobber
           else
             gh release create "$GITHUB_REF_NAME" "$EPUB" \
