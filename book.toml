@@ -15,6 +15,7 @@ git-branch = "master"
 
 [output.html]
 git-repository-url = "https://github.com/whatot/leeao"
+no-section-label = true
 additional-css = ["theme/leeao.css"]
 additional-js = ["theme/leeao-toc.js"]
 
