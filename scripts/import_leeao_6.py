@@ -37,7 +37,9 @@ def source_books(source_dir: Path):
 def update_summary(root: Path, rows: list[tuple]) -> None:
     summary = root / "SUMMARY.md"
     lines = summary.read_text().splitlines()
-    for _, _, category in reversed(CATEGORIES[:17]):
+    for _, _, category in reversed(CATEGORIES):
+        if not (root / category).exists():
+            continue
         start = next(i for i, line in enumerate(lines) if line.startswith(f"- [") and f"({category}/README.md)" in line)
         end = next((i for i in range(start + 1, len(lines)) if lines[i].startswith("- [")), len(lines))
         books = [(number, title, target) for number, title, _, row_category, target, _ in rows if row_category == category]
@@ -76,11 +78,11 @@ def main() -> None:
     for number, title, source in source_books(args.source_dir):
         category = category_for(number)
         target = args.root / category / f"{title}.md"
-        status = "existing" if target.exists() else "pending"
+        status = "present" if target.exists() else "pending"
         if number <= args.max_number and not target.exists():
             target.parent.mkdir(exist_ok=True)
             target.write_text(markdown_text(title, source), encoding="utf-8")
-            status = "imported"
+            status = "present"
             imported += 1
         rows.append((number, title, source.name, category, str(target.relative_to(args.root)), status))
 
