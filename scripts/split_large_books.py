@@ -8,6 +8,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+from reflow_long_paragraphs import reflow
+
 
 BOOKS = [
     ("03.惊世杂文类/求是报.md", "month", 50),
@@ -180,7 +182,8 @@ def write_book(root: Path, relative: str, mode: str, target: int) -> tuple[dict[
             body = [f"# {title}：{label}", "", "<!-- toc -->", ""]
             for item in group:
                 body.extend(lines[item["index"] : item["end"]])
-            generated[section_dir / filename] = "\n".join(body).rstrip() + "\n"
+            content = "\n".join(body).rstrip() + "\n"
+            generated[section_dir / filename] = reflow(content)[0]
         if section_lines is not None:
             generated[section_dir / "README.md"] = "\n".join(section_lines).rstrip() + "\n"
     generated[output_dir / "README.md"] = "\n".join(overview).rstrip() + "\n"
