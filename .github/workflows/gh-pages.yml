@@ -11,17 +11,24 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
 
-      - uses: jontze/action-mdbook@v3
+      - uses: jontze/action-mdbook@v4.0.0
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          mdbook-version: 0.5.4
           use-linkcheck: true
+          linkcheck-version: 0.7.7
           use-mermaid: true
+          mermaid-version: 0.17.0
           use-toc: true
+          toc-version: 0.15.4
           use-opengh: true
+          opengh-version: 3.0.0
           use-admonish: true
+          admonish-version: 1.20.0
           use-katex: true
+          katex-version: 0.10.0-alpha-binaries
       - name: Show mdbook version
         run: mdbook --version
       - name: Show linkchecker version
@@ -41,7 +48,7 @@ jobs:
         run: mdbook build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4.1.0
         if: ${{ github.ref == 'refs/heads/master' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
