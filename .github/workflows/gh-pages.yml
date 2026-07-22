@@ -24,14 +24,11 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6.0.0
 
-      - uses: jontze/action-mdbook@v4.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          mdbook-version: 0.5.4
-          use-toc: true
-          toc-version: 0.15.4
-          use-opengh: true
-          opengh-version: 3.0.0
+      - name: Install mdBook tools
+        run: |
+          cargo install mdbook --version 0.5.4 --locked
+          cargo install mdbook-toc --version 0.15.4 --locked
+          cargo install mdbook-open-on-gh --version 3.0.0 --locked
       - name: Show mdbook version
         run: mdbook --version
       - name: Show toc version
