@@ -17,32 +17,16 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           mdbook-version: 0.5.4
-          use-linkcheck: true
-          linkcheck-version: 0.7.7
-          use-mermaid: true
-          mermaid-version: 0.17.0
           use-toc: true
           toc-version: 0.15.4
           use-opengh: true
           opengh-version: 3.0.0
-          use-admonish: true
-          admonish-version: 1.20.0
-          use-katex: true
-          katex-version: 0.10.0-alpha-binaries
       - name: Show mdbook version
         run: mdbook --version
-      - name: Show linkchecker version
-        run: mdbook-linkcheck --version
-      - name: Show mermaid version
-        run: mdbook-mermaid --version
       - name: Show toc version
         run: mdbook-toc --version
       - name: Show open-on-gh version
         run: mdbook-open-on-gh --version
-      - name: Show admonish version
-        run: mdbook-admonish --version
-      - name: Show katex version
-        run: mdbook-katex --version
 
       - name: Build
         run: mdbook build

@@ -52,7 +52,6 @@ gitbook 已经转向付费，于是迁移到 mdbook 实现。
 
 ```shell
 cargo install mdbook --version 0.5.4 --locked
-cargo install mdbook-linkcheck --version 0.7.7 --locked
 cargo install mdbook-toc --version 0.15.4 --locked
 cargo install mdbook-epub --version 0.5.4 --locked
 cargo install mdbook-open-on-gh --version 3.0.0 --locked
