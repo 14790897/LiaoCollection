@@ -39,11 +39,13 @@ jobs:
         run: echo "$HOME/.local/mdbook-tools/bin" >> "$GITHUB_PATH"
 
       - name: Build EPUB
-        run: mdbook-epub --standalone .
+        run: |
+          mdbook-epub --standalone .
+          mv "book/大李敖全集.epub" "book/leeao-${GITHUB_REF_NAME}.epub"
 
       - name: Verify EPUB
         run: |
-          epub="book/大李敖全集.epub"
+          epub="book/leeao-${GITHUB_REF_NAME}.epub"
           test -f "$epub"
           test "$(wc -c < "$epub")" -lt 2147483648
           unzip -t "$epub"
@@ -52,7 +54,7 @@ jobs:
       - name: Publish release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EPUB: book/大李敖全集.epub
+          EPUB: book/leeao-${{ github.ref_name }}.epub
         run: |
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" "$EPUB" --clobber
