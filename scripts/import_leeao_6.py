@@ -87,7 +87,7 @@ def main() -> None:
     manifest = args.root / "sources" / "leeao-6.0.csv"
     manifest.parent.mkdir(exist_ok=True)
     with manifest.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(("number", "title", "source_file", "category", "target", "status"))
         writer.writerows(rows)
     update_summary(args.root, rows)
