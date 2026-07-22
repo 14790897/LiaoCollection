@@ -49,7 +49,9 @@ def main() -> None:
     if args.output:
         output = args.output if args.output.is_absolute() else args.root / args.output
         with output.open("w", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=results[0].keys())
+            writer = csv.DictWriter(
+                handle, fieldnames=results[0].keys(), lineterminator="\n"
+            )
             writer.writeheader()
             writer.writerows(results)
 
