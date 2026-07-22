@@ -4,17 +4,25 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v7.0.1
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6.0.0
 
       - uses: jontze/action-mdbook@v4.0.0
         with:
@@ -34,9 +42,18 @@ jobs:
       - name: Build
         run: mdbook build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4.1.0
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          path: ./book
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.0
