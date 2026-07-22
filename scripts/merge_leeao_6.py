@@ -38,7 +38,7 @@ def decode_source(path: Path) -> list[str]:
 
 
 def key(line: str) -> str:
-    return SPACE.sub("", HEADING.sub("", line))
+    return SPACE.sub("", HEADING.sub("", line)).replace(r"\<", "<")
 
 
 def is_source_boilerplate(line: str) -> bool:
