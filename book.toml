@@ -4,9 +4,8 @@ language = "zh"
 src = "./"
 title = "大李敖全集"
 
-[preprocessor.toc]
-command = "mdbook-toc"
-renderer = ["html"]
+[preprocessor.pagetoc]
+renderers = ["html"]
 
 [preprocessor.open-on-gh]
 command = "mdbook-open-on-gh"
@@ -15,8 +14,9 @@ git-branch = "master"
 
 [output.html]
 git-repository-url = "https://github.com/whatot/leeao"
-additional-css = ["theme/leeao.css"]
-additional-js = ["theme/leeao-toc.js"]
+sidebar-header-nav = false
+additional-css = ["theme/leeao.css", "theme/pagetoc.css"]
+additional-js = ["theme/pagetoc.js"]
 
 [output.html.print]
 # print超过github上限50MB，于是默认关闭

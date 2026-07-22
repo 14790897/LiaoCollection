@@ -13,7 +13,7 @@ permissions:
 
 env:
   MDBOOK_VERSION: 0.5.4
-  MDBOOK_TOC_VERSION: 0.15.4
+  MDBOOK_PAGETOC_VERSION: 0.3.0
   MDBOOK_OPEN_ON_GH_VERSION: 3.0.0
 
 concurrency:
@@ -34,13 +34,13 @@ jobs:
         uses: actions/cache@v6.1.0
         with:
           path: ~/.local/mdbook-tools
-          key: mdbook-tools-${{ runner.os }}-${{ runner.arch }}-${{ env.MDBOOK_VERSION }}-${{ env.MDBOOK_TOC_VERSION }}-${{ env.MDBOOK_OPEN_ON_GH_VERSION }}
+          key: mdbook-tools-${{ runner.os }}-${{ runner.arch }}-${{ env.MDBOOK_VERSION }}-${{ env.MDBOOK_PAGETOC_VERSION }}-${{ env.MDBOOK_OPEN_ON_GH_VERSION }}
 
       - name: Install mdBook tools
         if: steps.mdbook-cache.outputs.cache-hit != 'true'
         run: |
           cargo install --root "$HOME/.local/mdbook-tools" mdbook --version "$MDBOOK_VERSION" --locked
-          cargo install --root "$HOME/.local/mdbook-tools" mdbook-toc --version "$MDBOOK_TOC_VERSION" --locked
+          cargo install --root "$HOME/.local/mdbook-tools" mdbook-pagetoc --version "$MDBOOK_PAGETOC_VERSION" --locked
           cargo install --root "$HOME/.local/mdbook-tools" mdbook-open-on-gh --version "$MDBOOK_OPEN_ON_GH_VERSION" --locked
 
       - name: Add mdBook tools to PATH
@@ -48,8 +48,8 @@ jobs:
 
       - name: Show mdbook version
         run: mdbook --version
-      - name: Show toc version
-        run: mdbook-toc --version
+      - name: Verify pagetoc installation
+        run: mdbook-pagetoc --help
       - name: Show open-on-gh version
         run: mdbook-open-on-gh --version
 

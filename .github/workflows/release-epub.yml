@@ -10,7 +10,6 @@ permissions:
 
 env:
   MDBOOK_VERSION: 0.5.4
-  MDBOOK_TOC_VERSION: 0.15.4
   MDBOOK_OPEN_ON_GH_VERSION: 3.0.0
   MDBOOK_EPUB_VERSION: 0.5.4
 
@@ -25,13 +24,12 @@ jobs:
         uses: actions/cache@v6.1.0
         with:
           path: ~/.local/mdbook-tools
-          key: mdbook-tools-epub-${{ runner.os }}-${{ runner.arch }}-${{ env.MDBOOK_VERSION }}-${{ env.MDBOOK_TOC_VERSION }}-${{ env.MDBOOK_OPEN_ON_GH_VERSION }}-${{ env.MDBOOK_EPUB_VERSION }}
+          key: mdbook-tools-epub-${{ runner.os }}-${{ runner.arch }}-${{ env.MDBOOK_VERSION }}-${{ env.MDBOOK_OPEN_ON_GH_VERSION }}-${{ env.MDBOOK_EPUB_VERSION }}
 
       - name: Install mdBook tools
         if: steps.mdbook-cache.outputs.cache-hit != 'true'
         run: |
           cargo install --root "$HOME/.local/mdbook-tools" mdbook --version "$MDBOOK_VERSION" --locked
-          cargo install --root "$HOME/.local/mdbook-tools" mdbook-toc --version "$MDBOOK_TOC_VERSION" --locked
           cargo install --root "$HOME/.local/mdbook-tools" mdbook-open-on-gh --version "$MDBOOK_OPEN_ON_GH_VERSION" --locked
           cargo install --root "$HOME/.local/mdbook-tools" mdbook-epub --version "$MDBOOK_EPUB_VERSION" --locked
 

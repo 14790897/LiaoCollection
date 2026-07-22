@@ -1,0 +1,73 @@
+@media only screen and (max-width:959px) {
+    .sidetoc {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:960px) {
+    .content {
+        --leeao-pagetoc-width: 20rem;
+        --leeao-pagetoc-gap: 2rem;
+    }
+    .content main {
+        position: relative;
+        margin-inline-start: max(1rem, calc((100% - var(--leeao-content-width) - var(--leeao-pagetoc-width) - var(--leeao-pagetoc-gap)) / 2));
+        margin-inline-end: auto;
+    }
+    .sidetoc {
+        left: calc(100% + var(--leeao-pagetoc-gap));
+        position: absolute;
+    }
+    .pagetoc {
+        position: fixed;
+        width: var(--leeao-pagetoc-width);
+        height: calc(100vh - var(--menu-bar-height) - 0.67em * 4);
+        overflow: auto;
+        font-size: 0.82em;
+        line-height: 1.45;
+    }
+    .pagetoc a {
+        border-inline-start: 1px solid var(--sidebar-bg);
+        color: var(--fg) !important;
+        display: block;
+        padding: 0.35rem 0.8rem;
+        overflow-wrap: anywhere;
+        text-align: start;
+        text-decoration: none;
+    }
+    .pagetoc a:hover,
+    .pagetoc a.active {
+        background: var(--sidebar-bg);
+        color: var(--sidebar-fg) !important;
+    }
+    .pagetoc .pagetoc-H1 {
+        display: none;
+    }
+    .pagetoc .pagetoc-H3 {
+        padding-inline-start: 1.6rem;
+    }
+    .pagetoc .pagetoc-H4 {
+        padding-inline-start: 2.4rem;
+    }
+    .pagetoc .pagetoc-H5,
+    .pagetoc .pagetoc-H6 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:960px) and (max-width:1199px) {
+    #mdbook-sidebar-toggle-anchor:checked ~ .page-wrapper .sidetoc {
+        display: none;
+    }
+
+    #mdbook-sidebar-toggle-anchor:checked ~ .page-wrapper .content main {
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+    }
+}
+
+@media only screen and (min-width:1280px) {
+    .content {
+        --leeao-pagetoc-width: 22rem;
+    }
+}

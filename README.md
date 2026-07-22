@@ -46,13 +46,13 @@ gitbook 已经转向付费，于是迁移到 mdbook 实现。
 - <https://github.com/rust-lang/mdBook>
 - <https://rust-lang.github.io/mdBook/>
 - <https://github.com/Michael-F-Bryan/mdbook-epub>
-- <https://github.com/badboy/mdbook-toc>
+- <https://github.com/slowsage/mdbook-pagetoc>
 - <https://github.com/badboy/mdbook-open-on-gh>
 - <https://github.com/jontze/action-mdbook>
 
 ```shell
 cargo install mdbook --version 0.5.4 --locked
-cargo install mdbook-toc --version 0.15.4 --locked
+cargo install mdbook-pagetoc --version 0.3.0 --locked
 cargo install mdbook-epub --version 0.5.4 --locked
 cargo install mdbook-open-on-gh --version 3.0.0 --locked
 
